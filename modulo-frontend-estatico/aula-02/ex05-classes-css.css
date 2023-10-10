@@ -1,0 +1,14 @@
+/* Classe que altera o tamanho da fonte para `16px` */
+.fonte-16 {
+  font-size: 16px;
+}
+
+/* Classe que altere a cor de fundo para `#ccc`*/
+.bg-ccc {
+  background-color: #ccc;
+}
+
+/* Classe que altera a cor da font para `#555` */
+.color-555 {
+  color: #555;
+}

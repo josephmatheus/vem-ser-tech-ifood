@@ -10,9 +10,6 @@
             margin: 20px auto;
             border-collapse: collapse;
         }
-        th {
-            background-color: #cecece;
-        }
         th,
         td {
             text-align: center;
@@ -20,22 +17,23 @@
             padding: 8px;
         }
     </style>
+    <link rel="stylesheet" href="./ex05-classes-css.css">
 </head>
 <body>
     <table>
         <thead>
             <tr>
-                <th rowspan="2"></th>
-                <th colspan="2">Informações</th>
+                <th rowspan="2" class="bg-ccc"></th>
+                <th colspan="2" class="bg-ccc">Informações</th>
             </tr>
             <tr>
-                <th>Idade</th>
-                <th>Peso</th>
+                <th class="bg-ccc">Idade</th>
+                <th class="bg-ccc">Peso</th>
             </tr>
         </thead>
         <tbody>
             <tr>
-                <th rowspan="2">Homens</th>
+                <th rowspan="2" class="bg-ccc">Homens</th>
                 <td>18</td>
                 <td>67Kg</td>
             </tr>
@@ -44,7 +42,7 @@
                 <td>89Kg</td>
             </tr>
             <tr>
-                <th rowspan="2">Mulheres</th>
+                <th rowspan="2" class="bg-ccc">Mulheres</th>
                 <td>31</td>
                 <td>87Kg</td>
             </tr>
