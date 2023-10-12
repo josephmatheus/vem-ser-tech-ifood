@@ -1,0 +1,107 @@
+:root {
+  --cor-primaria: #a6f750;
+  --cor-secundaria: #0f1216;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: var(--cor-secundaria);
+  margin: 0;
+}
+
+h1 {
+  background-color: var(--cor-primaria);
+  color: var(--cor-secundaria);
+  padding: 20px;
+  margin: 0 0 40px 0;
+  text-align: center;
+}
+
+form {
+  width: 80%;
+  margin: 0 auto 40px auto;
+  padding: 20px;
+  border: 1px solid var(--cor-primaria);
+  border-radius: 10px;
+}
+
+fieldset {
+  border: 1px solid var(--cor-primaria);
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 15px;
+}
+
+legend {
+  font-weight: bold;
+  color: var(--cor-primaria);
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  color: var(--cor-primaria);
+}
+
+input[type="text"],
+input[type="number"],
+input[type="tel"],
+input[type="date"],
+input[type="time"] {
+  width: 96%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+input[type="checkbox"] {
+  margin-right: 5px;
+}
+
+label[for^="hobbies-"] {
+  display: inline-block;
+  margin-right: 10px;
+  font-weight: normal;
+  color: #333;
+}
+
+input[type="checkbox"]:checked + label {
+  font-weight: bold;
+  color: var(--cor-primaria);
+}
+
+select {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  font-size: 16px;
+}
+
+select#genero {
+  height: 40px;
+  width: 200px;
+  margin-bottom: 10px;
+}
+
+select#cor-preferida {
+  height: 140px;
+  width: 200px;
+}
+
+button {
+  background-color: var(--cor-primaria);
+  color: var(--cor-secundaria);
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+button[type="reset"] {
+  background-color: var(--cor-secundaria);
+  color: var(--cor-primaria);
+}
