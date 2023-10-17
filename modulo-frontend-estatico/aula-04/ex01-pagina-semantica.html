@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Doceria Ada</title>
+    <link rel="stylesheet" href="./ex01-pagina-semantica.css" />
+  </head>
+  <body>
+    <div id="header"></div>
+    <header class="header">
+      <a class="logo" href="./ex01-pagina-semantica.html">
+        <h1>Doceria Ada</h1>
+      </a>
+      <nav>
+        <ul>
+          <li><a href="#header">Home</a></li>
+          <li><a href="#about-us">Sobre</a></li>
+          <li><a href="#produtos">Produtos</a></li>
+          <li><a href="#pedidos">Compre</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main id="main" class="main">
+      <section class="hero">
+        <h2>Doceria Ada</h2>
+        <p>Delicie-se com os sabores doces que fazem a vida mais doce.</p>
+      </section>
+      <section id="about-us" class="about-us">
+        <h2>Sobre</h2>
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Suscipit alias obcaecati corporis dolorum necessitatibus quis optio voluptatum. Sapiente quibusdam blanditiis dolor explicabo dignissimos delectus doloremque sunt voluptas, sit natus rerum laborum harum totam. Amet quas ad laborum vel possimus, nobis assumenda et deleniti quis, molestias dignissimos ratione nihil omnis maiores distinctio, fuga nostrum suscipit! Aliquam sit repellat iure, ullam minus error, rem dolorum eos quos dolor, eveniet maiores facilis cum quia. Porro esse alias consequuntur itaque ab repudiandae perferendis vel, maxime cumque mollitia amet quidem placeat. Illum, eveniet laboriosam saepe exercitationem autem veritatis est minima asperiores omnis velit sequi architecto.</p>
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eos maiores laudantium temporibus facere ipsam repudiandae, atque ea porro illo eveniet nostrum architecto nulla, pariatur voluptates dicta vero laboriosam? Molestiae tenetur quasi officia consectetur at ducimus incidunt dolor quibusdam nam reprehenderit! Quos explicabo culpa asperiores minima dolor libero, architecto voluptatum eveniet nulla, in repellat neque mollitia animi eius. Temporibus facilis voluptatum ea deserunt qui! Voluptas mollitia quas nemo? Impedit, dolore quibusdam est explicabo eaque odit aspernatur temporibus rem soluta distinctio vero laborum odio velit dolorum maiores doloremque quos aliquid voluptate ea maxime fuga? Asperiores suscipit omnis nostrum voluptas odio, pariatur veritatis.</p>
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Earum iusto, reiciendis excepturi, maiores, consequuntur optio nam obcaecati in non ab exercitationem repellendus sint doloremque recusandae facilis est voluptas assumenda commodi.
+        Necessitatibus explicabo quis pariatur saepe, dolorum error reprehenderit, asperiores officiis obcaecati corrupti ducimus, eius repellendus. Voluptatibus expedita esse dolorum, culpa praesentium cupiditate odit amet possimus, voluptas, quae sunt corporis modi.</p>
+      </section>
+      <section id="produtos" class="produtos">
+        <h2>Produtos</h2>
+        <ul>
+          <li class="item">
+            <div class="item-image">
+                <img src="https://delicious.com.br/wp-content/uploads/2020/11/bolo-mousse-de-chocolate-2020.png" alt="Bolo de Mousse de Chocolate">
+            </div>
+            <div class="item-info">
+                <h3>Bolo de Mousse de Chocolate</h3>
+                <span>R$ 116,87</span>
+                <p>Bolo de chocolate com recheio de Mousse de Chocolate.</p>
+            </div>
+          </li>
+          <li class="item">
+            <div class="item-image">
+                <img src="https://delicious.com.br/wp-content/uploads/2020/10/torta-de-morango-2020.jpg" alt="Torta de Morango">
+            </div>
+            <div class="item-info">
+                <h3>Torta de Morango</h3>
+                <span>R$ 139,90</span>
+                <p>Torta de Massa biscoito, creme Patisserie, morangos e geléia de morango.</p>
+            </div>
+          </li>
+          <li class="item">
+            <div class="item-image">
+                <img src="https://delicious.com.br/wp-content/uploads/2022/07/DSC00335.jpg" alt="Doces Gourmet Clássicos">
+            </div>
+            <div class="item-info">
+                <h3>Doces Gourmet Clássicos</h3>
+                <span>R$ 36,00</span>
+                <p>Os clássicos que amamos, no tamanho premium de 20g.</p>
+            </div>
+          </li>
+          <li class="item">
+            <div class="item-image">
+                <img src="https://delicious.com.br/wp-content/uploads/2020/10/trufas-especiais-2020.png" alt="Trufas">
+            </div>
+            <div class="item-info">
+                <h3>Trufas</h3>
+                <span>R$ 3,00 (un)</span>
+                <p>As clássicas trufas que amamos, em vários sabores.</p>
+            </div>
+          </li>
+        </ul>
+      </section>
+      <section id="pedidos" class="pedidos">
+        <h2>Faça seu pedido</h2>
+        
+        <form>
+          <label for="nome">Nome:</label>
+          <input type="text" id="nome" name="nome" required><br><br>
+  
+          <label for="email">E-mail:</label>
+          <input type="email" id="email" name="email" required><br><br>
+  
+          <label for="telefone">Telefone:</label>
+          <input type="tel" id="telefone" name="telefone" required><br><br>
+  
+          <label for="endereco">Endereço de Entrega:</label>
+          <input type="text" id="endereco" name="endereco" required><br><br>
+
+          <label for="produto">Selecione o Produto:</label>
+          <select id="produto" name="produto" required>
+              <option value="bolo">Bolo de Chocolate</option>
+              <option value="torta-de-morango">Torta de Morango</option>
+              <option value="doces-gourmet-classico">Doces Gourmet Clássicos</option>
+              <option value="trufas">Trufas</option>
+          </select><br><br>
+  
+          <label for="quantidade">Quantidade:</label>
+          <input type="number" id="quantidade" name="quantidade" required min="1"><br><br>
+  
+          <label for="observacoes">Observações:</label>
+          <textarea id="observacoes" name="observacoes"></textarea><br><br>
+  
+          <input type="submit" value="Enviar Pedido">
+      </form>
+      </section>
+    </main>
+    <footer class="footer">
+      <div class="copyright">
+        <p>&copy; Doceria Ada. Todos os direitos reservados.</p>
+      </div>
+    </footer>
+  </body>
+</html>
