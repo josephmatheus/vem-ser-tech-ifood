@@ -68,7 +68,7 @@ Não há requisitos mínimos para este módulo
 
 ## Plano de Aulas
 
-### Aula 1
+### [Aula 1](./aula-01/)
 
 - Problema Gerador:
   - Criar uma página HTML do zero
@@ -93,7 +93,7 @@ Não há requisitos mínimos para este módulo
 
 ---
 
-### Aula 2
+### [Aula 2](./aula-02/)
 
 - Problema Gerador:
   - Criar listas de compras, afazeres e tabelas em HTML + CSS
@@ -112,7 +112,7 @@ Não há requisitos mínimos para este módulo
 
 ---
 
-### Aula 3
+### [Aula 3](./aula-03/)
 
 - Problema Gerador:
   - Criar um formulário funcional em HTML
@@ -138,7 +138,7 @@ Não há requisitos mínimos para este módulo
 
 ---
 
-### Aula 4
+### [Aula 4](./aula-04/)
 
 - Problema Gerador:
   - Criar uma página em HTML otimizada para SEO e acessibilidade
