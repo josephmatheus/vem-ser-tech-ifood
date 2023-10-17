@@ -28,3 +28,7 @@ O programa contava com 4 opções de trilhas de estudos: Front-End, Back-End, De
 ## Agradecimentos 🙏🏻
 
 Agradeço ao iFood e à ADA por tornarem este programa possível e por investirem na formação de talentos na área de tecnologia, assim como meus familiares e amigos que sempre me apoiaram. Foi uma grande conquista pessoal ter finalmente sido selecionado para este programa após três tentativas. Esta oportunidade não apenas representa um marco significativo em minha jornada, mas também é um testemunho do poder da perseverança e da determinação. O apoio e os recursos fornecidos pelo iFood e pela ADA são verdadeiramente inestimáveis, espero cosneguir aproveitar ao máximo essa experiência para aprimorar minhas habilidades e por meio disto, conquistar minha primeira vaga no mercado de trabalho na área de tecnologia.
+
+## Licença 📝
+
+Este projeto está licenciado sob a [**MIT License**](./LICENSE).
