@@ -181,7 +181,7 @@ Não há requisitos mínimos para este módulo
 
 ---
 
-### Aula 6
+### [Aula 6](./aula-06/)
 
 - Problema Gerador:
   - Criar uma página HTML utilizando flexbox/grid Layout e deixando-a responsiva
