@@ -104,7 +104,7 @@
 
 ---
 
-### Aula 2
+### [Aula 2](./aula-02/)
 
 - Problema Gerador:
   - Médias e Médias Ponderadas (usando listas)
