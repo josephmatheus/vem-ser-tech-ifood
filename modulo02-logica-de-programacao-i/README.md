@@ -124,7 +124,7 @@
 
 ---
 
-### Aula 3
+### [Aula 3](./aula-03/)
 
 - Problema Gerador:
   - Agenda de contatos
