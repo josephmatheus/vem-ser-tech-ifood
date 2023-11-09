@@ -145,7 +145,7 @@
 
 ---
 
-### Aula 4
+### [Aula 4](./aula-04/)
 
 - Problema Gerador:
   - Médias que dizem "passou" ou "não passou"
