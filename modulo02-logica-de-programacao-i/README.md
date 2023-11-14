@@ -174,7 +174,7 @@
 
 ---
 
-### Aula 5
+### [Aula 5](./aula-05/)
 
 - Problema Gerador:
   - Jogo da adivinhação (responder até acertar o número sorteado)
@@ -195,7 +195,7 @@
 
 ---
 
-### Aula 6
+### [Aula 6](./aula-06/)
 
 - Problema Gerador:
   - Jogo de dados
