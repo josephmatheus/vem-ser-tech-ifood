@@ -103,3 +103,10 @@ let pessoasQuePodemBeberEnergetico = listaConvidados.filter((convidado, index, a
 
 // console.log("Lista de presença");
 // console.table(listaDePresenca);
+
+
+// EXERCICIO PARA PROXIMA AULA
+
+/**
+ * Presentear os alunos com bolsas de estudos no curso de React. Alunos menores de 18 anos ganharão bolsas de 100% e maiores de 18 que estejam aptos para bolsas ganharão desconto de 50%. O valor do curso é de 250 reais. A bolsa será ofertada somente aos alunos que já estejam matriculados nos cursos de html, css e javascript. Será necessário gerar um relatório com uma lista dos alunos matriculados neste novo curso, ordenando do menor para o maior, com base nos níveis de conhecimento em javascript. O relatório também deverá contem o valor total de investimento da instituição.
+ */
