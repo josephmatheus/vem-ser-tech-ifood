@@ -1,0 +1,67 @@
+const pessoas = [
+  {
+    primeiroNome: "Aline",
+    ultimoNome: "Pereira",
+    aptoParaBolsa: true,
+    idade: 16,
+    matriculas: ["css", "html", "javascript"],
+    niveis: {
+      css: 8,
+      html: 10,
+      javascript: 4,
+    },
+    total: 0,
+  },
+  {
+    primeiroNome: "Joseph",
+    ultimoNome: "Lima",
+    aptoParaBolsa: true,
+    idade: 28,
+    matriculas: ["css", "html", "javascript"],
+    niveis: {
+      css: 8,
+      html: 10,
+      javascript: 6,
+    },
+    total: 0,
+  },
+  {
+    primeiroNome: "Matheus",
+    ultimoNome: "Lima",
+    aptoParaBolsa: true,
+    idade: 15,
+    matriculas: ["css", "html", "javascript"],
+    niveis: {
+      css: 8,
+      html: 10,
+      javascript: 6,
+    },
+    total: 0,
+  },
+  {
+    primeiroNome: "Miriam",
+    ultimoNome: "Oliveira",
+    aptoParaBolsa: true,
+    idade: 29,
+    matriculas: ["css", "html", "javascript"],
+    niveis: {
+      css: 8,
+      html: 10,
+      javascript: 6,
+    },
+    total: 0,
+  },
+  {
+    primeiroNome: "Patrícia",
+    ultimoNome: "Lima",
+    aptoParaBolsa: true,
+    idade: 52,
+    matriculas: ["css", "html", "javascript"],
+    niveis: {
+      css: 8,
+      html: 10,
+      javascript: 6,
+    },
+    total: 0,
+  },
+];
