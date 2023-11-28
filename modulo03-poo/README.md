@@ -1,4 +1,4 @@
-# Lógica de Programação I
+# Programação Orientada a Objetos
 
 ## Aulas, Carga horária e Duração
 
