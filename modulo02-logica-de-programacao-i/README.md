@@ -218,7 +218,7 @@
 
 ---
 
-### Aula 7
+### [Aula 7](./aula-07/)
 
 - Problema Gerador:
   - Transformar o jogo de dados em uma funcionalidade reaproveitável
@@ -238,7 +238,7 @@
 
 ---
 
-### Aula 8
+### [Aula 8](./aula-08/)
 
 - Problema Gerador:
   - Como evitar que seu sistema exploda?
