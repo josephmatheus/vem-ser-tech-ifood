@@ -20,7 +20,7 @@ O programa contava com 4 opções de trilhas de estudos: Front-End, Back-End, De
 
 - [**Módulo 1 - *Front End Estático***](./modulo01-frontend-estatico/)
 - [**Módulo 2 - *Lógica de Programação I (JS/TS)***](./modulo02-logica-de-programacao-i/)
-- **Módulo 3 - *Programação Orientada a Objetos I (JS/TS)***
+- [**Módulo 3 - *Programação Orientada a Objetos I (JS/TS)***](./modulo03-poo/)
 - **Módulo 4 - *Front End Dinâmico (JS DOM)***
 - **Módulo 5 - *Framework de Front End I (React)***
 - **Módulo 6 - *Framework de Front End II (React)***
