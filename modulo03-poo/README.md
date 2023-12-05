@@ -86,7 +86,7 @@
 
 ---
 
-### Aula 2
+### [Aula 2](./aula-02/)
 
 - Problema Gerador:
   - Como representar ações relacionadas a uma entidade?
@@ -105,7 +105,7 @@
 
 ---
 
-### Aula 3
+### [Aula 3](./aula-03/)
 
 - Problema Gerador:
   - Como garantir a segurança na alteração dos valores de atributos?
