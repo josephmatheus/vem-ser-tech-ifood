@@ -123,7 +123,7 @@
 
 ---
 
-### Aula 4
+### [Aula 4](./aula-04/)
 
 - Problema Gerador:
   - Como criar uma classe genérica e fazer outras classes "herdarem" propriedades dela?
