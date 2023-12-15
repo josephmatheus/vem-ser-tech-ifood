@@ -1,85 +1,119 @@
-class ControladorJogo {
-  #palavrasSorteadas = ["javascript", "html", "react", "ifood"];
+class Partida {
+  static MAXIMO_ERROS = 6;
 
-  comecarPartida() {
-    let palavraSorteada =
-      this.#palavrasSorteadas[
-        Math.floor(Math.random() * (this.#palavrasSorteadas.length - 1))
-      ];
+  #palavra;
+  #letrasUtilizadas = [];
+  #pontuacao = 0;
+  #erros = 0;
+  #resultado = [];
 
-    console.log("Partida iniciada!");
+  constructor(palavra) {
+    this.#palavra = palavra?.toLowerCase();
+    this.#resultado = "_".repeat(this.#palavra.length).split("");
+  }
 
-    return new Partida(palavraSorteada);
+  chutar(valor) {
+    if (valor?.length === 1) {
+      this.#chutarLetra(valor);
+    } else {
+      this.#chutarPalavra(valor);
+    }
+  }
+
+  get finalizada() {
+    const atingiuLimiteDeErros = this.#erros === Partida.MAXIMO_ERROS;
+    const acertouPalavra = !this.#resultado.includes("_");
+
+    return atingiuLimiteDeErros || acertouPalavra;
+  }
+
+  get resultado() {
+    return this.#resultado.join(" ");
+  }
+
+  #chutarLetra(letra) {
+    letra = letra?.toLowerCase();
+
+    const letraJaFoiUtilizada = this.#letrasUtilizadas.includes(letra);
+    if (letraJaFoiUtilizada) return;
+
+    this.#letrasUtilizadas.push(letra);
+
+    const letraCorreta = this.#palavra.includes(letra);
+    if (letraCorreta) {
+      this.#pontuacao += 5;
+      this.#manipularResultado(letra);
+    } else {
+      this.#erros++;
+    }
+    this.#verificarPartidaFinalizada();
+  }
+
+  #chutarPalavra(palavra) {
+    palavra = palavra?.toLowerCase();
+
+    const palavraCerta = this.#palavra === palavra;
+
+    if (palavraCerta) {
+      const qtdLacunas = this.#resultado.filter((item) => item === "_").length;
+
+      if (qtdLacunas <= 1) {
+        this.#pontuacao += 5 + 10;
+      } else {
+        this.#pontuacao += qtdLacunas * 7 + 10;
+      }
+
+      this.#resultado = palavra.split("");
+    } else {
+      this.#erros++;
+    }
+  }
+
+  #manipularResultado(letra) {
+    const caracteresPalavra = this.#palavra.split("");
+    caracteresPalavra.forEach((item, indice) => {
+      if (letra === item) {
+        this.#resultado[indice] = item;
+      }
+    });
+  }
+
+  #verificarPartidaFinalizada() {
+    const existeLacuna = this.#resultado.includes("_");
+    if (!existeLacuna) {
+      this.#pontuacao += 10;
+    }
   }
 }
 
-class Partida {
-  #letrasRecebidas = [];
-  #palavra = [];
-  #forca = [];
-  #contadorErros = 0;
-  #pontuacao = 0;
+class ControladorJogo {
+  #palavras = [];
+  #partida;
 
-  constructor(palavraSorteada) {
-    this.#palavra = palavraSorteada.toLowerCase();
-    for (let index = 0; index < this.#palavra.length; index++) {
-      this.#forca[index] = "_";
-    }
+  constructor(palavras) {
+    this.#palavras = palavras;
+    this.#iniciarPartida();
   }
 
-  chutarLetra(letra) {
-    if (!letra) {
-      console.warn("É obrigatório chutar uma letra");
+  chutar(valor) {
+    if (this.#partida.finalizada) {
+      throw new Error("A partida já está finalizada");
     }
-    if (this.#letrasRecebidas.includes(letra)) {
-      console.warn("A letra já foi informada!");
-    }
-    this.#verificaChute(letra.toLowerCase());
-    if (this.#contadorErros == 6) {
-      throw new Error("O jogo acabou!");
-    }
-    this.exibePontuacao();
+
+    this.#partida.chutar(valor);
+    console.log(this.#partida.resultado);
   }
 
-  #verificaChute(letra) {
-    if (letra.length > 1) {
-      if (letra === this.#palavra) {
-        let lacunas = this.#forca.filter((item) => item == "_");
-        if (lacunas.length == 1) {
-          this.#pontuacao += 15;
-        } else {
-          this.#pontuacao += lacunas.length * 7 + 10;
-        }
-
-        this.#forca = letra.split("");
-      }
-    } else {
-      if (this.#palavra.includes(letra)) {
-        this.#letrasRecebidas.push(letra);
-        this.#pontuacao += 5;
-        let lacunas = this.#forca.filter((item) => item == "_");
-        let array = this.#palavra.split("");
-        this.#forca.map((item, index) => {
-          if (array[index] == letra) {
-            this.#forca[index] = letra;
-          }
-
-          return item;
-        });
-        if (lacunas == 0) {
-          return console.log(
-            "Parabéns, você venceu o jogo. Sua pontuação foi:",
-            this.exibePontuacao()
-          );
-        }
-      } else {
-        this.#letrasRecebidas.push(letra);
-        this.#contadorErros++;
-      }
-    }
+  #iniciarPartida() {
+    const palavraAleatoria = this.#obterPalavraAleatoria();
+    this.#partida = new Partida(palavraAleatoria);
   }
-  
-  exibePontuacao() {
-    console.log(this.#pontuacao, this.#forca);
+
+  #obterPalavraAleatoria() {
+    const indiceAleatorio = Math.floor(
+      Math.random() * (this.#palavras.length - 1)
+    );
+
+    return this.#palavras[indiceAleatorio];
   }
 }
