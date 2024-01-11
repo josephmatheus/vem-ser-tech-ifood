@@ -95,7 +95,7 @@
 
 ---
 
-### Aula 2
+### [Aula 2](./aula-02/)
 
 - Problema Gerador:
   - Como deixar um formulário ou um site reativo usando JS Vanilla?
