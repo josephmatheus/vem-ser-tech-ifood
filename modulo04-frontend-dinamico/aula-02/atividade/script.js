@@ -51,3 +51,38 @@ function validateFields() {
 
   return hasError;
 }
+
+// ATIVIDADE 2
+
+function validateFieldFocus() {
+  const inputs = document.querySelectorAll("input");
+  inputs.forEach(input => {
+    input.addEventListener("blur", () => {
+      if (!input.value) {
+        showFieldMessage(input)
+      } else {
+        removeFieldMessage(input)
+      }
+    })
+  
+    input.addEventListener("keydown", () => {
+      if (!input.value && input.value !== "") {
+        showFieldMessage(input)
+      } else {
+        removeFieldMessage(input)
+      }
+    })
+  })
+}
+
+function showFieldMessage(field) {
+  field.nextElementSibling.classList.add("d-block");
+  field.nextElementSibling.classList.remove("d-none");
+}
+
+function removeFieldMessage(field) {
+  field.nextElementSibling.classList.add("d-none");
+  field.nextElementSibling.classList.remove("d-block");
+}
+
+validateFieldFocus();
