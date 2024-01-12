@@ -1,5 +1,6 @@
 // ATIVIDADE 1
 const form = document.querySelector("form");
+const inputs = document.querySelectorAll("input");
 console.log(form);
 
 form.addEventListener("submit", (event) => {
@@ -34,9 +35,8 @@ form.addEventListener("submit", (event) => {
   }
 });
 
-function validateFields() {
+function validateFormOnSubmit() {
   let hasError = false;
-  const inputs = document.querySelectorAll("input");
   console.log(inputs);
   inputs.forEach((field) => {
     if (!field.value) {
@@ -52,8 +52,7 @@ function validateFields() {
 
 // ATIVIDADE 2
 
-function validateFieldFocus() {
-  const inputs = document.querySelectorAll("input");
+function validateFields() {
   inputs.forEach(input => {
     input.addEventListener("blur", () => {
       if (!input.value) {
@@ -83,4 +82,4 @@ function removeFieldMessage(field) {
   field.nextElementSibling.classList.remove("d-block");
 }
 
-validateFieldFocus();
+validateFields();
