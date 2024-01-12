@@ -40,12 +40,10 @@ function validateFields() {
   console.log(inputs);
   inputs.forEach((field) => {
     if (!field.value) {
-      field.nextElementSibling.classList.add("d-block");
-      field.nextElementSibling.classList.remove("d-none");
+      showFieldMessage(field)
       hasError = true;
     } else {
-      field.nextElementSibling.classList.add("d-none");
-      field.nextElementSibling.classList.remove("d-block");
+      removeFieldMessage(field)
     }
   });
 
