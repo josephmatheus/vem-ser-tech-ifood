@@ -1,7 +1,12 @@
 // ATIVIDADE 1
 const form = document.querySelector("form");
 const inputs = document.querySelectorAll("input");
-console.log(form);
+
+let users = [];
+
+createDatabase();
+
+validateFields();
 
 form.addEventListener("submit", (event) => {
   event.preventDefault();
@@ -31,7 +36,7 @@ form.addEventListener("submit", (event) => {
       address,
     };
 
-    console.log(payload);
+    saveUser(payload);
   }
 });
 
@@ -40,10 +45,10 @@ function validateFormOnSubmit() {
   console.log(inputs);
   inputs.forEach((field) => {
     if (!field.value) {
-      showFieldMessage(field)
+      showErrorMessage(field)
       hasError = true;
     } else {
-      removeFieldMessage(field)
+      hideErrorMessage(field)
     }
   });
 
@@ -56,30 +61,135 @@ function validateFields() {
   inputs.forEach(input => {
     input.addEventListener("blur", () => {
       if (!input.value) {
-        showFieldMessage(input)
+        showErrorMessage(input)
       } else {
-        removeFieldMessage(input)
+        hideErrorMessage(input)
       }
     })
-  
+
     input.addEventListener("keydown", () => {
       if (!input.value && input.value !== "") {
-        showFieldMessage(input)
+        showErrorMessage(input)
       } else {
-        removeFieldMessage(input)
+        hideErrorMessage(input)
       }
     })
+
+    switch (input.id) {
+      case "name":
+      case "surname":
+      case "profession":
+        if (input.value.length < 2) {
+          input.nextElementSibling.innerText =
+            "O campo precisa ter, ao menos, 2 caracteres.";
+          showErrorMessage(input);
+        }
+        break;
+
+      case "birthDate":
+        compareDates(input);
+        break;
+
+      case "documentNumber":
+        if (input.value.length != 11) {
+          input.nextElementSibling.innerText =
+            "O campo precisa ter 11 caracteres.";
+          showErrorMessage(input);
+        }
+        break;
+
+      case "password":
+        if (input.value.length < 8) {
+          input.nextElementSibling.innerText =
+            "O campo precisa ter, ao menos, 8 caracteres.";
+          showErrorMessage(input);
+        }
+        break;
+
+      case "phone":
+        if (input.value.length < 10 || input.value.length > 11) {
+          input.nextElementSibling.innerText =
+            "O campo precisa ter entre 10 e 11 caracteres.";
+          showErrorMessage(input);
+        }
+        break;
+
+      default:
+        break;
+    }
   })
 }
 
-function showFieldMessage(field) {
+function showErrorMessage(field) {
   field.nextElementSibling.classList.add("d-block");
   field.nextElementSibling.classList.remove("d-none");
 }
 
-function removeFieldMessage(field) {
+function hideErrorMessage(field) {
   field.nextElementSibling.classList.add("d-none");
   field.nextElementSibling.classList.remove("d-block");
 }
 
-validateFields();
+function compareDates(input) {
+  const birthDate = new Date(input.value + "T00:00:00").setHours(0, 0, 0, 0);
+  const today = new Date().setHours(0, 0, 0, 0);
+  if (birthDate >= today) {
+    input.nextElementSibling.innerText =
+      "A data de nascimento precisa ser menor que a data atual.";
+    showErrorMessage(input);
+  }
+}
+
+function saveUser(user) {
+  // getUsers();
+  // users.push(user);
+  // localStorage.setItem("USERS", JSON.stringify(users));
+
+  const request = indexedDB.open("database", 1);
+
+  request.onsuccess = function (event) {
+    const db = event.target.result;
+
+    const transaction = db.transaction(["users"], "readwrite");
+    const objectStore = transaction.objectStore("users");
+
+    console.log(user);
+    const requestAdd = objectStore.add(user);
+
+    requestAdd.onsuccess = function () {
+      window.location.href = "./usuarios.html";
+    };
+
+    requestAdd.onerror = function () {
+      console.log("Houve um erro!", event.target.error);
+    };
+  };
+
+  request.onerror = function (event) {};
+}
+
+function getUsers() {
+  users = JSON.parse(localStorage.getItem("USERS") || "[]");
+}
+
+function createDatabase() {
+  const request = indexedDB.open("database", 1);
+
+  request.onsuccess = function (event) {
+    const db = event.target.result;
+    console.log("Banco de dados aberto com sucesso!", db);
+  };
+
+  request.onerror = function (event) {
+    console.log("Erro ao abrir o banco de dados!", event.target.error);
+  };
+
+  request.onupgradeneeded = function (event) {
+    const db = event.target.result;
+
+    const objectStore = db.createObjectStore("users", {
+      keyPath: "id",
+      autoIncrement: true,
+    });
+  };
+}
