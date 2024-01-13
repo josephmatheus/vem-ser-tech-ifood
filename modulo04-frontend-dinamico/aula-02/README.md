@@ -57,7 +57,7 @@ Existem vários tipos de eventos DOM disponíveis para uso em JavaScript. Alguns
 
 ---
 
-- ***click:*** acionados quando um elemento é clicado.
+- **_click:_** acionados quando um elemento é clicado.
 
 ```js
 element.addEventListener("click", (event) => {
@@ -67,7 +67,7 @@ element.addEventListener("click", (event) => {
 
 ---
 
-- ***keydown:*** acionados quando uma tecla é pressionada no teclado.
+- **_keydown:_** acionados quando uma tecla é pressionada no teclado.
 
 ```js
 element.addEventListener("keydown", (event) => {
@@ -77,7 +77,7 @@ element.addEventListener("keydown", (event) => {
 
 ---
 
-- ***keyup:*** acionados quando uma tecla é liberada no teclado.
+- **_keyup:_** acionados quando uma tecla é liberada no teclado.
 
 ```js
 element.addEventListener("keyup", (event) => {
@@ -87,7 +87,7 @@ element.addEventListener("keyup", (event) => {
 
 ---
 
-- ***submit:*** acionados quando um formulário é submetido.
+- **_submit:_** acionados quando um formulário é submetido.
 
 ```js
 element.addEventListener("submit", (event) => {
@@ -97,7 +97,7 @@ element.addEventListener("submit", (event) => {
 
 ---
 
-- ***change:*** acionados quando um campo de entrada é alterado.
+- **_change:_** acionados quando um campo de entrada é alterado.
 
 ```js
 element.addEventListener("change", (event) => {
@@ -107,7 +107,7 @@ element.addEventListener("change", (event) => {
 
 ---
 
-- ***mouseover:*** acionados quando um mouse é movido sobre um elemento.
+- **_mouseover:_** acionados quando um mouse é movido sobre um elemento.
 
 ```js
 element.addEventListener("mouseover", (event) => {
@@ -117,7 +117,7 @@ element.addEventListener("mouseover", (event) => {
 
 ---
 
-- ***mouseout:*** acionados quando um mouse é movido para fora de um elemento.
+- **_mouseout:_** acionados quando um mouse é movido para fora de um elemento.
 
 ```js
 element.addEventListener("mouseout", (event) => {
@@ -127,9 +127,7 @@ element.addEventListener("mouseout", (event) => {
 
 ---
 
----
-
-- ***load:*** acionado quando uma página é carregada.
+- **_load:_** acionado quando uma página é carregada.
 
 ```js
 element.addEventListener("load", (event) => {
@@ -139,7 +137,7 @@ element.addEventListener("load", (event) => {
 
 ---
 
-- ***focus:*** acionado quando um elemento recebe foco.
+- **_focus:_** acionado quando um elemento recebe foco.
 
 ```js
 element.addEventListener("focus", (event) => {
@@ -149,7 +147,7 @@ element.addEventListener("focus", (event) => {
 
 ---
 
-- ***blur:*** acionado quando um elemento perde o foco.
+- **_blur:_** acionado quando um elemento perde o foco.
 
 ```js
 element.addEventListener("blur", (event) => {
