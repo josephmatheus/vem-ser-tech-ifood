@@ -33,8 +33,8 @@ function refreshUsersGrid() {
                 </p>
             </div>
             <div class="card-footer d-flex justify-content-end">
-                <a href="#" class="btn btn-primary" onclick="editUser(${user.id})">Editar</a>
-                <a class="btn btn-danger" onclick="removeUser(${user.id})">Excluir</a>
+                <a href="#" class="btn btn-primary" onclick="editUser('${user._id}')">Editar</a>
+                <a class="btn btn-danger" onclick="removeUser('${user._id}')">Excluir</a>
             </div>
             </div>
         </div>
@@ -43,57 +43,24 @@ function refreshUsersGrid() {
 }
 
 function getUsers() {
-  findAll("database", "users")
+  findAll()
     .then((records) => {
       users = records;
       refreshUsersGrid();
-      console.log("Registros encontrados:", records);
     })
     .catch((error) => {
-      console.error("Erro:", error);
+      console.error("Erro ao buscar usuários:", error);
     });
 }
 
 function removeUser(id) {
-  const request = indexedDB.open("database", 1);
-
-  request.onsuccess = function (event) {
-    const db = event.target.result;
-
-    const transaction = db.transaction(["users"], "readwrite");
-    const objectStore = transaction.objectStore("users");
-
-    const requestUser = objectStore.get(id);
-
-    requestUser.onsuccess = function (event) {
-      const user = event.target.result;
-
-      if (user) {
-        const requestDelete = objectStore.delete(id);
-
-        requestDelete.onsuccess = function (event) {
-          getUsers();
-        };
-
-        requestDelete.onerror = function (event) {
-          console.log(
-            "Houve um erro ao excluir o registro!",
-            event.target.error
-          );
-        };
-      } else {
-        console.log("Usuário não encontrado");
-      }
-    };
-
-    requestUser.onerror = function () {
-      console.log("Houve um erro!", event.target.error);
-    };
-  };
-
-  request.onerror = function (event) {
-    console.log("Houve um erro!", event.target.error);
-  };
+  remove(id)
+    .then(() => {
+      getUsers();
+    })
+    .catch((error) => {
+      console.error("Erro ao excluir o usuário:", error);
+    });
 }
 
 function editUser(id) {
