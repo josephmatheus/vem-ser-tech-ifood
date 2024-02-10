@@ -1,4 +1,17 @@
-interface CaixaRestauranteProps {}
+interface CaixaRestauranteProps {
+  restaurante: {
+    nome: string;
+    avaliacao: number;
+    categoria: string;
+    tempoEntrega: number;
+    descricao: string;
+    cardapio: {
+      nome: string;
+      descricao: string;
+      preco: number;
+    }[];
+  };
+}
 
 function CaixaRestaurante(props: CaixaRestauranteProps) {
   const {
@@ -7,7 +20,6 @@ function CaixaRestaurante(props: CaixaRestauranteProps) {
       avaliacao,
       categoria,
       tempoEntrega,
-      valorEntrega,
       descricao,
     },
   } = props;
@@ -23,7 +35,6 @@ function CaixaRestaurante(props: CaixaRestauranteProps) {
           <span className="small-details">{avaliacao}</span>
           <span className="small-details">{categoria}</span>
           <span className="small-details">{tempoEntrega}</span>
-          <span className="small-details">{valorEntrega}</span>
         </div>
         <p>{descricao}</p>
       </li>

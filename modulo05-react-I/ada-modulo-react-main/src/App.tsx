@@ -1,17 +1,14 @@
+import { useState } from "react";
 import "./App.scss";
+import CaixaItemRestaurante from "./components/CaixaItemRestaurante";
 import CaixaRestaurante from "./components/CaixaRestaurante";
+import restaurantes from "./data/restaurantsAndItems.json"
 
 function App() {
-  const restauranteDonaFlorinda = {
-    nome: "Nonna's Trattoria",
-    descricao:
-      "Um refúgio italiano onde a família se reúne para saborear pratos caseiros.",
-    avaliacao: 4.3,
-    categoria: "Italiana",
-    tempoEntrega: 40,
-    valorEntrega: 6,
-  };
-
+  const [restauranteEscolhido, definirRestauranteEscolhido] = useState("")
+  function escolherRestaurante(restauranteEscolhido: string) {
+    definirRestauranteEscolhido(restauranteEscolhido)
+  }
   return (
     <>
       <header>
@@ -20,7 +17,7 @@ function App() {
             <span>Boas vindas, [nome da pessoa]</span>
             <div className="shopping-cart">
               carrinho de compras
-              <span className="badge">2</span>
+              <span className="badge">0</span>
             </div>
           </div>
         </div>
@@ -29,30 +26,27 @@ function App() {
         <section>
           <h2>Restaurantes</h2>
           <ul className="grid" role="list">
-            <CaixaRestaurante restaurante={restauranteDonaFlorinda} />
+            {restaurantes.map((restaurante) => (
+              <button onClick={() => escolherRestaurante(restaurante.nome)}>
+              <CaixaRestaurante key={restaurante.nome} restaurante={restaurante} />
+              </button>
+            ))}
           </ul>
         </section>
-        <section>
-          <h2>Itens do Restaurante XYZ</h2>
+        {restauranteEscolhido !== "" ? (
+          <section>
+          <h2>Itens do Restaurante {restauranteEscolhido}</h2>
           <ul
             className="grid"
             role="list"
             style={{ "--max": "200px" } as React.CSSProperties}
           >
-            <li>
-              <h3>Nome do item</h3>
-              <p>
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quae,
-                ipsa.
-              </p>
-              <div className="counter">
-                <button>-</button>
-                <span>0</span>
-                <button>+</button>
-              </div>
-            </li>
+            
           </ul>
         </section>
+        ) : (
+          <></>
+        )}
       </div>
     </>
   );
