@@ -1,15 +1,12 @@
+import Avaliacoes from "./Avaliacoes";
+
 interface CaixaRestauranteProps {
   restaurante: {
     nome: string;
-    avaliacao: number;
+    avaliacao?: number;
     categoria: string;
     tempoEntrega: number;
     descricao: string;
-    cardapio: {
-      nome: string;
-      descricao: string;
-      preco: number;
-    }[];
   };
 }
 
@@ -29,10 +26,12 @@ function CaixaRestaurante(props: CaixaRestauranteProps) {
 
   return (
     <>
-      <li className="restaurant-box">
+      <li key={nome} className="restaurant-box">
         <h1>{nome}</h1>
         <div className="details">
-          <span className="small-details">{avaliacao}</span>
+          <span className="small-details">
+            <Avaliacoes avaliacao={avaliacao}/>
+          </span>
           <span className="small-details">{categoria}</span>
           <span className="small-details">{tempoEntrega}</span>
         </div>

@@ -1,14 +1,12 @@
-import { useState } from "react";
 import "./App.scss";
-import CaixaItemRestaurante from "./components/CaixaItemRestaurante";
-import CaixaRestaurante from "./components/CaixaRestaurante";
-import restaurantes from "./data/restaurantsAndItems.json"
+import PaginaCardapioRestaurante from "./pages/PaginaCardapioRestaurante";
+import PaginaRestaurantes from "./pages/PaginaRestaurantes";
+
+import { Routes, Route } from "react-router-dom";
 
 function App() {
-  const [restauranteEscolhido, definirRestauranteEscolhido] = useState("")
-  function escolherRestaurante(restauranteEscolhido: string) {
-    definirRestauranteEscolhido(restauranteEscolhido)
-  }
+  const pagina = "home";
+
   return (
     <>
       <header>
@@ -22,31 +20,15 @@ function App() {
           </div>
         </div>
       </header>
+      {/* <div className="container">
+        {pagina === "home" ? <PaginaRestaurantes /> : ""}
+        {pagina === "restaurantes" ? <PaginaCardapioRestaurante /> : ""}
+      </div> */}
       <div className="container">
-        <section>
-          <h2>Restaurantes</h2>
-          <ul className="grid" role="list">
-            {restaurantes.map((restaurante) => (
-              <button onClick={() => escolherRestaurante(restaurante.nome)}>
-              <CaixaRestaurante key={restaurante.nome} restaurante={restaurante} />
-              </button>
-            ))}
-          </ul>
-        </section>
-        {restauranteEscolhido !== "" ? (
-          <section>
-          <h2>Itens do Restaurante {restauranteEscolhido}</h2>
-          <ul
-            className="grid"
-            role="list"
-            style={{ "--max": "200px" } as React.CSSProperties}
-          >
-            
-          </ul>
-        </section>
-        ) : (
-          <></>
-        )}
+        <Routes>
+          <Route path="/" element={<PaginaRestaurantes />} />
+          <Route path="cardapio" element={<PaginaCardapioRestaurante />} />
+        </Routes>
       </div>
     </>
   );
