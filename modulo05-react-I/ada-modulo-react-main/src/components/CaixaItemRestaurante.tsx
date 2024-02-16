@@ -15,37 +15,34 @@ export default function CaixaItemRestaurante(props: CaixaItemRestauranteProps) {
     max = 10,
   } = props;
 
-  const [quantidade, setQuantidade] = useState(0);
+  const [quantidade, definirQuantidade] = useState(0);
 
   function aumentarQuantidade() {
     if (quantidade >= max) return;
-    setQuantidade(quantidade + 1);
+    definirQuantidade(quantidade + 1);
   }
-
   function diminuirQuantidade() {
     if (quantidade === 0) return;
-    setQuantidade(quantidade - 1);
+    definirQuantidade(quantidade - 1);
   }
 
-  if (!nome) return <></>
+  if (!nome) return <></>;
 
   return (
     <li>
-      <h3>{nome}</h3>
-      <p>
-        {descricao} / R${preco},00
-      </p>
-      <div className="counter">
-        {preco > 0 ? (
-          <>
-            <button onClick={diminuirQuantidade}>-</button>
-            <span>{quantidade}</span>
-            <button onClick={aumentarQuantidade}>+</button>
-          </>
-        ) : (
-          "Indisponível no momento"
-        )}
-      </div>
+      <h3>
+        {nome} / <small>R${preco},00</small>
+      </h3>
+      <p>{descricao}</p>
+      {preco > 0 ? (
+        <div className="counter">
+          <button onClick={diminuirQuantidade}>-</button>
+          <span>{quantidade}</span>
+          <button onClick={aumentarQuantidade}>+</button>
+        </div>
+      ) : (
+        "Indisponível no momento"
+      )}
     </li>
   );
 }
