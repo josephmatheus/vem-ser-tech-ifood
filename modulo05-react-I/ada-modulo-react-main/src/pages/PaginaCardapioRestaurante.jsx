@@ -3,10 +3,10 @@ import restaurantes from "../data/restaurantsAndItems.json";
 import CaixaItemRestaurante from "../components/CaixaItemRestaurante";
 
 function PaginaCardapioRestaurante() {
-  const { slug } = useParams();
+  const { slug: idDaUrl } = useParams();
 
   const restaurante = restaurantes.filter(
-    (restaurante) => restaurante.slug === slug
+    (restaurante) => restaurante.slug === idDaUrl
   )[0];
 
   return (
@@ -20,11 +20,7 @@ function PaginaCardapioRestaurante() {
         placeholder="Pesquisar pelo nome do item ou descrição..."
       />
       <label htmlFor="search">🔎</label>
-      <ul
-        className="grid"
-        role="list"
-        style={{ "--max": "300px" } as React.CSSProperties}
-      >
+      <ul className="grid" role="list" style={{ "--max": "300px" }}>
         {restaurante.cardapio.map((item) => (
           <>
             <CaixaItemRestaurante item={item} />
