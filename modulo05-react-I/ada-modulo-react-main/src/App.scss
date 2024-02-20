@@ -171,7 +171,7 @@ h1 {
 .counter {
   display: flex;
   justify-content: space-between;
-  margin-top: 1rem;
+  margin-top: 2rem;
   margin-bottom: 0;
   align-items: baseline;
   & button {
@@ -272,4 +272,9 @@ input {
 
 header .row a {
   font-size: 3rem;
+}
+
+form {
+  margin-top: 3rem;
+  max-width: 400px;
 }
